@@ -1,5 +1,7 @@
 fn main() {
-    for number in 1..=5 {
-        println!("Number is: {}", number);
+    let mut count = 1;
+    while count <= 5 {
+        println!("Iteration: {}", count);
+        count += 1;
     }
 }
