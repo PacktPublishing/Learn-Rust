@@ -1,4 +1,4 @@
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 struct Point {
     x: i32,
     y: i32,
@@ -16,6 +16,4 @@ fn main() {
     println!("Debug: {:?}", point);
     println!("Debug#: {:#?}", point);
     println!("Display: {}", point);
-
-    format!
 }
