@@ -1,0 +1,1 @@
+C:\data\2024\Teaching\Boek\Learn-Rust\Ch06\Examples\example05\runner\target\debug\runner.exe: C:\data\2024\Teaching\Boek\Learn-Rust\Ch06\Examples\example05\my_local_crate\src\lib.rs C:\data\2024\Teaching\Boek\Learn-Rust\Ch06\Examples\example05\runner\src\main.rs

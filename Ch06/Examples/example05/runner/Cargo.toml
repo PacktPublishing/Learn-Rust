@@ -1,0 +1,7 @@
+[package]
+name = "runner"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+my_local_crate = { path = "../my_local_crate" }
