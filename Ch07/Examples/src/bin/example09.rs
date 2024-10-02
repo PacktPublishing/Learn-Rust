@@ -1,10 +1,12 @@
 fn main() {
-    let success_result: Result<i32, &str> = Ok(10);
-    let failure_result: Result<i32, &str> = Err("Error!");
+    let first_ok: Result<i32, &str> = Ok(10);
+    let second_ok: Result<i32, &str> = Ok(20);
 
-    let success_option: Option<i32> = success_result.ok();
-    let failure_option: Option<i32> = failure_result.ok();
+    let first_err: Result<i32, &str> = Err("first error");
+    let second_err: Result<i32, &str> = Err("second error");
 
-    println!("Success as Option: {:?}", success_option);
-    println!("Failure as Option: {:?}", failure_option);
+    println!("ok - ok: {:?}", first_ok.or(second_ok));
+    println!("ok - err: {:?}", first_ok.or(second_err));
+    println!("err - ok: {:?}", first_err.or(second_ok));
+    println!("err - err: {:?}", first_err.or(second_err));
 }

@@ -1,39 +1,29 @@
-trait Shape {
-    fn area(&self) -> f64;
+trait Graph {
+    type Node;
+    type Edge;
+
+    fn nodes(&self) -> Vec<Self::Node>;
+    fn edges(&self) -> Vec<Self::Edge>;
 }
 
-struct Circle {
-    radius: f64,
-}
+struct SimpleGraph;
 
-impl Shape for Circle {
-    fn area(&self) -> f64 {
-        std::f64::consts::PI * self.radius * self.radius
+impl Graph for SimpleGraph {
+    type Node = i32;
+    type Edge = (i32, i32);
+
+    fn nodes(&self) -> Vec<Self::Node> {
+        vec![1, 2, 3]
     }
-}
 
-struct Rectangle {
-    width: f64,
-    height: f64,
-}
-
-impl Shape for Rectangle {
-    fn area(&self) -> f64 {
-        self.width * self.height
+    fn edges(&self) -> Vec<Self::Edge> {
+        vec![(1, 2), (2, 3)]
     }
-}
-
-fn print_area(shape: &dyn Shape) {
-    println!("Area: {}", shape.area());
 }
 
 fn main() {
-    let circle = Circle { radius: 5.0 };
-    let rectangle = Rectangle { width: 3.0, height: 4.0 };
+    let simple_graph = SimpleGraph;
 
-    let shapes: Vec<&dyn Shape> = vec![&circle, &rectangle];
-
-    for shape in shapes {
-        print_area(shape);
-    }
+    println!("{:?}", simple_graph.nodes());
+    println!("{:?}", simple_graph.edges());
 }

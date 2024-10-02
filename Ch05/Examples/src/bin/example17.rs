@@ -1,8 +1,12 @@
-fn make_vector<T>(item: T) -> Vec<T> {
-    vec![item]
+fn identity<T: std::fmt::Debug>(x: T) -> T {
+    x
 }
 
 fn main() {
-    let v = make_vector(77);
-    println!("{:?}", v);
+    let s = "hello".to_string();
+    println!("{}", identity(s));
+
+    let arr: &[i32] = &[1, 2, 3];
+    println!("{:?}", identity(arr));
 }
+

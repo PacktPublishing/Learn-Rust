@@ -1,10 +1,15 @@
-fn display_and_clone<T: std::fmt::Display + Clone>(value: T) {
-    println!("{}", value);
-    let _copy = value.clone();
+fn largest<T: PartialOrd>(x: T, y: T) -> T {
+    if x > y {
+        x
+    } else {
+        y
+    }
 }
 
 fn main() {
-    let s = String::from("Hello, world!");
+    let num = largest(10, 20);
+    let char = largest('a', 'b');
 
-    display_and_clone(s); 
+    println!("Largest number: {}", num);
+    println!("Largest char: {}", char);
 }

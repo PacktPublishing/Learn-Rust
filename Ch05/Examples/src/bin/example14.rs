@@ -1,8 +1,7 @@
-fn compare_and_display(a: impl std::fmt::Debug, b: impl std::fmt::Display) {
-    println!("{:?}", a);
-    println!("{}", b);
+fn print_and_clone(value: impl std::fmt::Display + Clone) {
+    println!("{}", value);
+    let _ = value.clone();
 }
-
-fn main() {
-    compare_and_display((1, 2), 3);
-}
+ fn main() {
+     print_and_clone("Calling...")
+ }

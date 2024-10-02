@@ -1,9 +1,8 @@
-fn print_value<T: ?Sized + std::fmt::Debug>(value: &T) {
-    println!("{:?}", value);
+fn compare_and_display(a: impl std::fmt::Debug, b: impl std::fmt::Display) {
+    println!("{:?}", a);
+    println!("{}", b);
 }
 
-
 fn main() {
-    let arr: &[i32] = &[1, 2, 3];
-    print_value(arr);
+    compare_and_display((1, 2), 3);
 }

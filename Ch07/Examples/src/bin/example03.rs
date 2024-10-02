@@ -1,16 +1,18 @@
-fn divide(a: f64, b: f64) -> Result<f64, String> {
-    if b == 0.0 {
-        Err(String::from("Division by zero"))
-    } else {
-        Ok(a / b)
-    }
-}
+use std::fs::File;
+use std::io::ErrorKind;
 
 fn main() {
-    let result = divide(10.0, 0.0);
+    let file_result = File::open("example.txt");
 
-    match result {
-        Ok(value) => println!("Result: {}", value),
-        Err(err) => println!("Error: {}", err),
+    match file_result {
+        Ok(file) => println!("File opened successfully: {:?}", file),
+        Err(ref error) if error.kind() == ErrorKind::NotFound => {
+            println!("File not found, creating a new file...");
+            match File::create("example.txt") {
+                Ok(_) => println!("File created successfully."),
+                Err(e) => println!("Failed to create the file: {:?}", e),
+            }
+        }
+        Err(error) => println!("Failed to open the file: {:?}", error),
     }
 }

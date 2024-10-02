@@ -1,7 +1,10 @@
 fn main() {
-    let number: Option<i32> = Some(5);
-    println!("The number is: {}", number.unwrap());
+    let success_result: Result<i32, &str> = Ok(10);
+    let failure_result: Result<i32, &str> = Err("Error!");
 
-    let result: Result<&str, &str> = Ok("Success!");
-    println!("Result: {}", result.unwrap());
+    let success_option: Option<i32> = success_result.ok();
+    let failure_option: Option<i32> = failure_result.ok();
+
+    println!("Success as Option: {:?}", success_option);
+    println!("Failure as Option: {:?}", failure_option);
 }

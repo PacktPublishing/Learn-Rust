@@ -1,36 +1,39 @@
-trait Draw {
-    fn draw(&self);
+trait Shape {
+    fn area(&self) -> f64;
 }
 
-trait Colored {
-    fn color(&self) -> String;
+struct Circle {
+    radius: f64,
 }
 
-trait ColoredShape: Draw + Colored {
-    fn describe(&self) {
-        println!("This shape is {} and can be drawn.", self.color());
+impl Shape for Circle {
+    fn area(&self) -> f64 {
+        std::f64::consts::PI * self.radius * self.radius
     }
 }
 
-struct Circle;
+struct Rectangle {
+    width: f64,
+    height: f64,
+}
 
-impl Draw for Circle {
-    fn draw(&self) {
-        println!("Drawing a circle.");
+impl Shape for Rectangle {
+    fn area(&self) -> f64 {
+        self.width * self.height
     }
 }
 
-impl Colored for Circle {
-    fn color(&self) -> String {
-        String::from("red")
-    }
+fn print_area(shape: &dyn Shape) {
+    println!("Area: {}", shape.area());
 }
-
-impl ColoredShape for Circle {}
 
 fn main() {
-    let circle = Circle;
-    circle.draw();
-    println!("Color: {}", circle.color());
-    circle.describe();
+    let circle = Circle { radius: 5.0 };
+    let rectangle = Rectangle { width: 3.0, height: 4.0 };
+
+    let shapes: Vec<&dyn Shape> = vec![&circle, &rectangle];
+
+    for shape in shapes {
+        print_area(shape);
+    }
 }
