@@ -8,5 +8,5 @@ fn main() {
     println!("{}", s);
     let result = valid_mutable_reference(&mut s);
     println!("{}", s);
-    println!("{}", reference);
+    println!("{}", result);
 }
