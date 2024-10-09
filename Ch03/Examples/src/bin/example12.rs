@@ -9,7 +9,7 @@ fn main() {
         author: String::from("Freek van Keulen"),
     };
 
-    let book_title = book.title;
-    println!("Title: {}", book_title);
+    let moved_title = book.title;
+    println!("Title: {}", moved_title);
     println!("Author: {}", book.author);
 }
