@@ -7,5 +7,5 @@ fn main() {
     let mut s = String::from("Hello");
     println!("{}", s);
     let result = valid_mutable_reference(&mut s);
-    println!("{}", s);
+    println!("{}", result);
 }
