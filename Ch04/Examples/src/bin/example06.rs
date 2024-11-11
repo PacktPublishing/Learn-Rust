@@ -5,23 +5,21 @@ struct Point {
 }
 
 impl Point {
-    fn translate(self, offset: &Point) -> Point {
-        Point {
-            x: self.x + offset.x,
-            y: self.y + offset.y,
-        }
+    fn translate(&mut self, offset: &Point){
+        self.x += offset.x;
+        self.y += offset.y;
     }
 }
 
 fn main() {
-    let p1 = Point{
+    let mut p1 = Point{
         x: 2,
         y: 3,
     };
     let offset = Point{
-        x: 10,
-        y: 12,
+        x: 5,
+        y: 7,
     };
-    let p1 = p1.translate(&offset);
+    p1.translate(&offset);
     println!("The point is: {:?}", p1);
 }

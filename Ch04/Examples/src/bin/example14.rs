@@ -1,21 +1,20 @@
 #[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32,
-    z: i32,
+#[allow(dead_code)]
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Point<T> {
+    fn new(x: T, y: T) -> Self {
+        Point { x, y }
+    }
 }
 
 fn main() {
-    let p1 = Point {
-        x: 1,
-        y: 2,
-        z: 3,
-    };
-    println!("p1: {:?}", p1);
+    let int_point = Point::new(5, 10);
+    let float_point = Point::new(1.5, 4.2);
 
-    let p2 = Point {
-        x: 10,
-        ..p1
-    };
-    println!("p2: {:?}", p2);
+    println!("int_point: {:?}", int_point);
+    println!("float_point: {:?}", float_point);
 }

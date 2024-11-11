@@ -3,8 +3,9 @@ struct Point {
     x: i32,
     y: i32,
 }
+
 impl Point {
-    fn translate(&self, offset: &Point) -> Point {
+    fn translate(self, offset: &Point) -> Point {
         Point {
             x: self.x + offset.x,
             y: self.y + offset.y,
@@ -18,9 +19,9 @@ fn main() {
         y: 3,
     };
     let offset = Point{
-        x: 4,
-        y: 5,
+        x: 10,
+        y: 12,
     };
-    let translated_point = p1.translate(&offset);
-    println!("The point is: {:?}", translated_point);
+    let p1 = p1.translate(&offset);
+    println!("The point is: {:?}", p1);
 }

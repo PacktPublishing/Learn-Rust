@@ -1,19 +1,15 @@
-#[derive(Debug)]
-enum Message {
-    Quit,
-    Move { x: i32, y: i32 },
-    Write(String),
-    ChangeColor(i32, i32, i32),
+#[allow(dead_code)]
+#[derive(Debug, PartialEq)]
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
 }
 
 fn main() {
-    let m1 = Message::Quit;
-    let m2 = Message::Move { x: 10, y: 20 };
-    let m3 = Message::Write(String::from("Hello"));
-    let m4 = Message::ChangeColor(255, 0, 0);
+    let traffic_light = TrafficLight::Red;
 
-    println!("{:?}", m1);
-    println!("{:?}", m2);
-    println!("{:?}", m3);
-    println!("{:?}", m4);
+    if traffic_light == TrafficLight::Red {
+        println!("The light is red. Please stop.");
+    }
 }

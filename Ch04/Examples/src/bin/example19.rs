@@ -8,14 +8,10 @@ enum Message {
 }
 
 fn main() {
-    let msg = Message::ChangeColor(255, 0, 0);
-
-    match msg {
-        Message::Quit => println!("The Quit variant has no data."),
-        Message::Move { x, y } => println!("Move to: {}, y: {}", x, y),
-        Message::Write(text) => println!("Text message: {}", text),
-        Message::ChangeColor(r, g, b) => {
-            println!("Change color to r: {}, g: {}, b: {}", r, g, b)
-        }
+    let msg = Message::Write(String::from("Hello, world!"));
+    if let Message::Write(text) = msg {
+        println!("Text message: {}", text);
+    } else {
+        println!("Not a Write message.");
     }
 }

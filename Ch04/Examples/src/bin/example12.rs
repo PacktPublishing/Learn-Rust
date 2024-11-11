@@ -3,11 +3,12 @@ struct Point {
     y: i32,
 }
 
-fn print_point(point: &Point) {
-    println!("Point is at ({}, {})", point.x, point.y);
+fn move_point(point: &mut Point, dx: i32, dy: i32) {
+    point.x += dx;
+    point.y += dy;
 }
 
 fn main() {
-    let p = Point { x: 5, y: 10 };
-    print_point(&p);
+    let mut p = Point { x: 5, y: 10 };
+    move_point(&mut p, 3, 4);
 }

@@ -1,17 +1,22 @@
-#[derive(Debug)]
-#[allow(dead_code)]
-enum Message {
-    Quit,
-    Move { x: i32, y: i32 },
-    Write(String),
-    ChangeColor(i32, i32, i32),
+fn find_value(slice: &[i32], target: i32) -> Option<usize> {
+    for i in 0..slice.len() {
+        if slice[i] == target {
+            return Some(i);
+        }
+    }
+    None
 }
 
 fn main() {
-    let msg = Message::Write(String::from("Hello, world!"));
-    if let Message::Write(text) = msg {
-        println!("Text message: {}", text);
-    } else {
-        println!("Not a Write message.");
+    let numbers = [1, 2, 3, 4, 5];
+
+    match find_value(&numbers, 3) {
+        Some(index) => println!("Found at index {}.", index),
+        None => println!(" not found in the slice."),
+    }
+
+    match find_value(&numbers, 6) {
+        Some(index) => println!("Found at index {}.", index),
+        None => println!("not found in the slice."),
     }
 }

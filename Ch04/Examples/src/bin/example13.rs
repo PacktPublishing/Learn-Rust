@@ -1,14 +1,21 @@
+#[derive(Debug)]
 struct Point {
     x: i32,
     y: i32,
-}
-
-fn move_point(point: &mut Point, dx: i32, dy: i32) {
-    point.x += dx;
-    point.y += dy;
+    z: i32,
 }
 
 fn main() {
-    let mut p = Point { x: 5, y: 10 };
-    move_point(&mut p, 3, 4);
+    let p1 = Point {
+        x: 1,
+        y: 2,
+        z: 3,
+    };
+    println!("p1: {:?}", p1);
+
+    let p2 = Point {
+        x: 10,
+        ..p1
+    };
+    println!("p2: {:?}", p2);
 }

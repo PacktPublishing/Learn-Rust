@@ -7,12 +7,12 @@ struct Point {
 impl Point {
     fn new(x: i32, y: i32) -> Self {
         Self {
-            x: x,
-            y: y,
+            x,
+            y,
         }
     }
 }
 
 fn main() {
-    let mut p1 = Point::new(2, 3);
+    let _p1 = Point::new(2, 3);
 }

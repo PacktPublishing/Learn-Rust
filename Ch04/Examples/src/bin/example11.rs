@@ -1,15 +1,13 @@
-#[derive(Debug)]
-struct Container {
-    a: String,
-    b: String,
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn print_point(point: &Point) {
+    println!("Point is at ({}, {})", point.x, point.y);
 }
 
 fn main() {
-    let c1 = Container {
-        a: String::from("Hello"),
-        b: String::from("Rust")
-    };
-    let a_string = c1.a;
-
-    println!("{}", c1.b);
+    let p = Point { x: 5, y: 10 };
+    print_point(&p);
 }

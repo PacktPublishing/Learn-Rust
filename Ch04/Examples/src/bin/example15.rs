@@ -1,20 +1,14 @@
 #[derive(Debug)]
 #[allow(dead_code)]
-struct Point<T> {
-    x: T,
-    y: T,
-}
-
-impl<T> Point<T> {
-    fn new(x: T, y: T) -> Self {
-        Point { x, y }
-    }
+enum Direction {
+    North,
+    South,
+    East,
+    West,
 }
 
 fn main() {
-    let int_point = Point::new(5, 10);
-    let float_point = Point::new(1.5, 4.2);
+    let current_direction = Direction::South;
 
-    println!("int_point: {:?}", int_point);
-    println!("float_point: {:?}", float_point);
+    println!("Current direction: {:?}", current_direction);
 }
