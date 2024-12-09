@@ -1,0 +1,4 @@
+This file multiple lines
+Some of them cnotains the word Rust
+Rust should be counted
+The correct answer is 2

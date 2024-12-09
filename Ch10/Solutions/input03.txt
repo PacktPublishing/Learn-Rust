@@ -1,0 +1,1 @@
+This is a file in UTF-8 containing only ASCII characters
